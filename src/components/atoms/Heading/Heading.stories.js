@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { number } from '@storybook/addon-knobs'
+import { text, number } from '@storybook/addon-knobs'
 
 import Heading from './Heading'
 
@@ -15,5 +15,6 @@ storiesOf('Atoms | Typography / Heading', module)
   })
   .add('renders a Heading with a specific level', () => {
     const selectLevel = number('Level: ', 1)
-    return <Heading level={selectLevel}>Heading 1</Heading>
+    const textContent = text('Heading text: ', 'Heading 1')
+    return <Heading level={selectLevel}>{textContent}</Heading>
   })

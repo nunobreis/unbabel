@@ -1,14 +1,14 @@
 const fonts = {
-  primary: 'Lato',
-  secondary: 'Poppins'
+  primary: 'Montserrat' || 'sans-serif',
+  secondary: 'Open Sans' || 'sans-serif'
 }
 
 const colors = {
   primary1: '#026557',
   primary2: '#389FBA',
   primary3: '#AEC0C1',
-  alternate1: '#F1EBDD',
-  alternate2: 'DACCD8',
+  secondary1: '#F1EBDD',
+  secondary2: '#DACCD8',
   dark: '#333',
   light: '#fff'
 }

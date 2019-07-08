@@ -1,7 +1,7 @@
 {
-  "name": "qadre.fragments",
+  "name": "nuno.reis.solution",
   "version": "1.0.0",
-  "description": "basic atoms for qadre projects",
+  "description": "solution for unbabel problem",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -4,7 +4,7 @@ import { text } from '@storybook/addon-knobs'
 
 import Paragraph from './Paragraph'
 
-storiesOf('Atoms | Paragraph', module).add('renders a new paragraph', () => {
+storiesOf('Atoms | Typography / Paragraph', module).add('renders a new paragraph', () => {
   const textContent = text('Content', 'Paragraph Content')
   return <Paragraph>{textContent}</Paragraph>
 })

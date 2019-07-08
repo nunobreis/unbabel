@@ -4,7 +4,7 @@ import { number } from '@storybook/addon-knobs'
 
 import Heading from './Heading'
 
-storiesOf('Atoms | Heading', module)
+storiesOf('Atoms | Typography / Heading', module)
   .addParameters({
     info: {
       text: `

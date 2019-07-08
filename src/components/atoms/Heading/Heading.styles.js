@@ -4,7 +4,7 @@ const fontFamily = ({ theme }) => theme.fonts.primary || 'sans-serif'
 
 const fontColor = ({ theme }) => theme.fonts.dark
 
-const fontSizeLarge = ({ level }) => `${2 + 1 * (1 / level)}rem`
+const fontSizeLarge = ({ level }) => `${1 + 1 * (1 / level)}rem`
 
 const biggerThanTablet = ({ theme }) => theme.device.tablet
 

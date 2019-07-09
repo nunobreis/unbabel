@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   padding: 2rem 6%;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
-  margin-bottom: 20rem;
+  margin-bottom: 4rem;
 `
 
 export const Brand = styled.p`

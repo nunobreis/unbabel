@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Container } from './TranslationsTemplate.styles'
+import { Container } from './TranscriptionsTemplate.styles'
 
-const TranslationsTemplate = ({ header, children }) => (
+const TranscriptionsTemplate = ({ header, children }) => (
   <div>
     { header }
     <Container>
@@ -12,9 +12,9 @@ const TranslationsTemplate = ({ header, children }) => (
   </div>
 )
 
-TranslationsTemplate.propTypes = {
+TranscriptionsTemplate.propTypes = {
   header: PropTypes.object.isRequired,
   children: PropTypes.object.isRequired
 }
 
-export default TranslationsTemplate
+export default TranscriptionsTemplate

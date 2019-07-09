@@ -4,5 +4,5 @@ export default create({
   base: 'light',
   brandTitle: 'Unbabel .',
   brandImage: 'Logo/unbabel-logo.png',
-  colorSecondary: '#389F8A'
+  colorSecondary: '#859EFF'
 })

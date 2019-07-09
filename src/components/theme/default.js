@@ -9,7 +9,7 @@ const colors = {
   primary3: '#AEC0C1',
   secondary1: '#F1EBDD',
   secondary2: '#DACCD8',
-  dark: '#8F97A8',
+  dark: '#566074',
   light: '#fff'
 }
 

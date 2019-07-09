@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Wrapper } from './Card.styles'
 
-const Card = ({ children }) => <Wrapper>{ children }</Wrapper>
+const Card = ({ children, ...props }) => <Wrapper {...props}>{ children }</Wrapper>
 
 Card.propTypes = {
   children: PropTypes.oneOfType([

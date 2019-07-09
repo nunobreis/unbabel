@@ -5,5 +5,12 @@ export const Wrapper = styled.div`
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: space-between;
-  width: 4rem;
+  width: 7rem;
+  height: 100%;
+  align-items: middle;
+  margin-top: 1rem;
+
+  & > svg:hover {
+    cursor: pointer;
+  }
 `

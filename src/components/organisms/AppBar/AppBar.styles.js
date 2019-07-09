@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-import Heading from '../../atoms/Heading/Heading'
-
 const whiteColor = ({ theme }) => theme.colors.light
 
 const darkColor = ({ theme }) => theme.colors.dark
+
+const primaryFont = ({ theme }) => theme.fonts.primary
 
 export const Wrapper = styled.div`
   background-color: ${whiteColor};
@@ -15,6 +15,9 @@ export const Wrapper = styled.div`
   margin-bottom: 20rem;
 `
 
-export const StyledHeading = styled(Heading)`
+export const Brand = styled.p`
   color: ${darkColor};
+  font-size: 1.6rem;
+  font-family: ${primaryFont};
+  font-weight: 600;
 `

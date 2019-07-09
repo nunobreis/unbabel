@@ -2,10 +2,10 @@ import React from 'react'
 
 import Navigation from '../../molecules/Navigation/Navigation'
 
-import { Wrapper, StyledHeading } from './AppBar.styles'
+import { Wrapper, Brand } from './AppBar.styles'
 
 const AppBar = () => <Wrapper>
-  <StyledHeading level={4}>Transcriptions</StyledHeading>
+  <Brand level={4}>Transcriptions</Brand>
   <Navigation />
 </Wrapper>
 

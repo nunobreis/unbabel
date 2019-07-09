@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const Main = () => <div>hello world</div>
+import { GlobalStyles } from './app.styles'
+
+const App = () => <div>
+  <h1>hello world</h1>
+  <GlobalStyles />
+</div>
 
 ReactDOM.render(
-  <Main />,
+  <App />,
   document.getElementById('app')
 )

@@ -5,6 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs'
 import { ThemeProvider } from 'styled-components'
 import backgroundColor from 'react-storybook-decorator-background'
 
+import { GlobalStyles } from '../src/app/app.styles';
 import theme from '../src/components/theme/default'
 import unbabelTheme from './unbabelStorybookTheme'
 
@@ -27,8 +28,11 @@ function loadStories() {
 }
 
 addDecorator(backgroundColor([ '#f9f9f9', '#b7b7b7' ]))
-addDecorator(story => <ThemeProvider theme={theme}>
+addDecorator(story => <div>
+  <ThemeProvider theme={theme}>
     {story()}
-</ThemeProvider>)
+</ThemeProvider>
+<GlobalStyles />
+</div>)
 
 configure(loadStories, module)

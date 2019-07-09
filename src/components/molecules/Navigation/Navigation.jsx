@@ -3,9 +3,11 @@ import React from 'react'
 import FetchIcon from '../../atoms/FetchIcon/FetchIcon'
 import UploadIcon from '../../atoms/UploadIcon/UploadIcon'
 
-const Navigation = () => <div>
+import { Wrapper } from './Navigation.styles'
+
+const Navigation = () => <Wrapper>
   <UploadIcon />
   <FetchIcon />
-</div>
+</Wrapper>
 
 export default Navigation

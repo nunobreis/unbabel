@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { StyledInput } from './EditableText.styles'
+import { StyledInput } from './EditableTitle.styles'
 
-const EditableText = () => <StyledInput placeholder="placeholder" />
+const EditableTitle = () => <StyledInput placeholder="placeholder" />
 
-export default EditableText
+export default EditableTitle

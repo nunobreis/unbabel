@@ -31,8 +31,8 @@ addDecorator(backgroundColor([ '#f9f9f9', '#b7b7b7' ]))
 addDecorator(story => <div>
   <ThemeProvider theme={theme}>
     {story()}
-</ThemeProvider>
-<GlobalStyles />
+  </ThemeProvider>
+  <GlobalStyles />
 </div>)
 
 configure(loadStories, module)

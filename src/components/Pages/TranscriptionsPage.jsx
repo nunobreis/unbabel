@@ -2,12 +2,12 @@ import React from 'react'
 
 import TranscriptionsTemplate from '../Templates/TranscriptionsTemplate/TranscriptionsTemplate'
 import AppBar from '../organisms/AppBar/AppBar'
-import Card from '../atoms/Card/Card'
+import CardContainer from '../../containers/Card.container'
 
 const TranscriptionsPage = () => <TranscriptionsTemplate header={<AppBar />}>
-  <Card>
+  <CardContainer>
     hello world
-  </Card>
+  </CardContainer>
 </TranscriptionsTemplate>
 
 export default TranscriptionsPage

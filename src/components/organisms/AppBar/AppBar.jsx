@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Navigation from '../../molecules/Navigation/Navigation'
+import NavigationContainer from '../../../containers/Navigation.container'
 
 import { Wrapper, Brand } from './AppBar.styles'
 
 const AppBar = () => <Wrapper>
   <Brand level={4}>Transcriptions</Brand>
-  <Navigation />
+  <NavigationContainer />
 </Wrapper>
 
 export default AppBar

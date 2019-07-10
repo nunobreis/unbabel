@@ -4,8 +4,8 @@ const fontFamily = ({ theme }) => theme.fonts.primary
 
 const darkColor = ({ theme }) => theme.colors.dark
 
-export const StyledInput = styled.input.attrs({
-  type: 'text'
+export const StyledInput = styled.textarea.attrs({
+  name: 'transcription content'
 })`
   background: transparent;
   border: none;

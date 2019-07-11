@@ -8,7 +8,8 @@ import EditableTitle from '../../atoms/EditableTitle/EditableTitle'
 
 import {
   StyledForm,
-  FormContent
+  FormContent,
+  StyledDeleteIcon
 } from './Transcriptions.styles'
 
 const TranscriptionForm = ({ voice, text }) => <StyledForm>
@@ -18,6 +19,7 @@ const TranscriptionForm = ({ voice, text }) => <StyledForm>
     <EditableTitle placeholder={voice}/>
     <EditableTextContent placeholder={text} />
   </FormContent>
+  <StyledDeleteIcon />
 </StyledForm>
 
 TranscriptionForm.propTypes = {

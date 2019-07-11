@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Container } from './TranscriptionsTemplate.styles'
+import { Wrapper } from './TranscriptionsTemplate.styles'
 
 const TranscriptionsTemplate = ({ header, children }) => (
   <div>
     { header }
-    <Container>
+    <Wrapper>
       { children }
-    </Container>
+    </Wrapper>
   </div>
 )
 

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import Card from '../components/atoms/Card/Card'
 import TranscriptionForm from '../components/molecules/TranscriptionForm/TranscriptionForm'
+import FetchingDataFailed from '../components/molecules/FetchingDataFailed/FetchingDataFailed'
 
 import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
 
@@ -20,18 +21,17 @@ class CardContainer extends React.Component {
       return (
         <Card>
           {transcriptions.messages.map(({ id, voice, text }) => (
-            <TranscriptionForm
-              key={id}
-              voice={voice}
-              text={text}
-            />
+            <TranscriptionForm key={id} voice={voice} text={text} />
           ))}
         </Card>
       )
-    } if (transcriptions.error) {
+    }
+    if (transcriptions.error) {
       return (
         <Card>
-          <p>Ups, there was an error when fetching your data. {transcriptions.error}</p>
+          <FetchingDataFailed
+            error={`Ups, something went wrong: ${transcriptions.error}`}
+          />
         </Card>
       )
     }

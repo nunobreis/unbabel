@@ -1,12 +1,13 @@
 import React from 'react'
 
-const AddRowIcon = () => (
+const AddRowIcon = ({ ...props }) => (
   <svg
     width="32px"
     height="32px"
     viewBox="0 0 32 32"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="add-row">

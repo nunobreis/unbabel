@@ -5,9 +5,13 @@ import AppBar from '../organisms/AppBar/AppBar'
 import CardContainer from '../../containers/Card.container'
 import AddRowIcon from '../atoms/AddRowIcon/AddRowIcon'
 
+import { AddNewRow } from './TranscriptionsPage.styles'
+
 const TranscriptionsPage = () => <TranscriptionsTemplate header={<AppBar />}>
   <CardContainer />
-  <AddRowIcon />
+  <AddNewRow>
+    <AddRowIcon />
+  </AddNewRow>
 </TranscriptionsTemplate>
 
 export default TranscriptionsPage

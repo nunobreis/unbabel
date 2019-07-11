@@ -14,7 +14,7 @@ const TranscriptionsTemplate = ({ header, children }) => (
 
 TranscriptionsTemplate.propTypes = {
   header: PropTypes.object.isRequired,
-  children: PropTypes.object.isRequired
+  children: PropTypes.node.isRequired
 }
 
 export default TranscriptionsTemplate

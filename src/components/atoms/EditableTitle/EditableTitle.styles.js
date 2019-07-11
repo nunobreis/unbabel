@@ -8,6 +8,7 @@ export const StyledInput = styled.input.attrs({
   type: 'text'
 })`
   background: transparent;
+  display: block;
   border: none;
   font-family: ${fontFamily};
   color: ${darkColor};

@@ -14,4 +14,6 @@ export const StyledInput = styled.textarea.attrs({
   font-weight: 400;
   font-size: 1.6rem;
   outline: none;
+  width: 100%;
+  resize: none;
 `

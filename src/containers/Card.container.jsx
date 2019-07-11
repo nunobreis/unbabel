@@ -4,32 +4,43 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Card from '../components/atoms/Card/Card'
-import EditableTitle from '../components/atoms/EditableTitle/EditableTitle'
-import EditableTextContent from '../components/atoms/EditableTextContent/EditableTextContent'
+import TranscriptionForm from '../components/molecules/TranscriptionForm/TranscriptionForm'
 
 import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
 
 class CardContainer extends React.Component {
   componentDidMount() {
-    this.props.actions.loadTranscriptions().catch(error => alert(`We couldn't get trascriptions: ${error}`))
+    const { actions } = this.props
+    actions.loadTranscriptions()
   }
 
   render() {
-    return (
-      <Card>
-        {this.props.transcriptions.map(transcription => (
-          <div key={transcription.id}>
-            <EditableTitle placeholder={transcription.voice} />
-            <EditableTextContent placeholder={transcription.text} />
-          </div>
-        ))}
-      </Card>
-    )
+    const { transcriptions } = this.props
+    if (transcriptions.messages) {
+      return (
+        <Card>
+          {transcriptions.messages.map(({ id, voice, text }) => (
+            <TranscriptionForm
+              key={id}
+              voice={voice}
+              text={text}
+            />
+          ))}
+        </Card>
+      )
+    } if (transcriptions.error) {
+      return (
+        <Card>
+          <p>Ups, there was an error when fetching your data. {transcriptions.error}</p>
+        </Card>
+      )
+    }
+    return <Card />
   }
 }
 
 CardContainer.propTypes = {
-  transcriptions: PropTypes.array.isRequired,
+  transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   actions: PropTypes.object.isRequired
 }
 

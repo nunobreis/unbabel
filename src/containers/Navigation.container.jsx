@@ -4,13 +4,10 @@ import { connect } from 'react-redux'
 
 import Navigation from '../components/molecules/Navigation/Navigation'
 
-const NavigationContainer = ({ transcriptions }) => {
-  console.log('transcriptions state ===> ', transcriptions)
-  return <Navigation />
-}
+const NavigationContainer = () => <Navigation />
 
 NavigationContainer.propTypes = {
-  transcriptions: PropTypes.array.isRequired
+  transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
 const mapStateToProps = ({ transcriptions }) => ({

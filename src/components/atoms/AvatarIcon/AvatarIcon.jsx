@@ -1,12 +1,13 @@
 import React from 'react'
 
-const AvatarIcon = () => (
+const AvatarIcon = ({ ...props }) => (
   <svg
     width="26px"
     height="26px"
     viewBox="0 0 26 26"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="person">

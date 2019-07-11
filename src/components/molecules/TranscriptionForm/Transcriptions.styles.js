@@ -5,7 +5,7 @@ export const StyledDeleteIcon = styled(DeleteIcon)`
   display: none;
 `
 
-export const StyledForm = styled.form`
+export const StyledForm = styled.div`
   display: flex;
   flex-flow: row nowrap;
 

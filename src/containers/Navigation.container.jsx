@@ -1,17 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Navigation from '../components/molecules/Navigation/Navigation'
 
-const NavigationContainer = () => <Navigation />
+import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
+
+class NavigationContainer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleFetchData = this.handleFetchData.bind(this)
+  }
+
+  handleFetchData() {
+    const { actions } = this.props
+    actions.loadTranscriptions()
+  }
+
+  render() {
+    return (
+      <Navigation
+        fetchData={this.handleFetchData}
+      />
+    )
+  }
+}
 
 NavigationContainer.propTypes = {
-  transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+  transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  actions: PropTypes.object.isRequired
 }
 
 const mapStateToProps = ({ transcriptions }) => ({
   transcriptions
 })
 
-export default connect(mapStateToProps)(NavigationContainer)
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(transcriptionsActions, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavigationContainer)

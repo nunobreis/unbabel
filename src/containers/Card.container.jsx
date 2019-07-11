@@ -10,19 +10,16 @@ import FetchingDataFailed from '../components/molecules/FetchingDataFailed/Fetch
 import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
 
 class CardContainer extends React.Component {
-  componentDidMount() {
-    const { actions } = this.props
-    actions.loadTranscriptions()
-  }
-
   render() {
     const { transcriptions } = this.props
     if (transcriptions.messages) {
       return (
         <Card>
-          {transcriptions.messages.map(({ id, voice, text }) => (
-            <TranscriptionForm key={id} voice={voice} text={text} />
-          ))}
+          <form>
+            {transcriptions.messages.map(({ id, voice, text }) => (
+              <TranscriptionForm key={id} voice={voice} text={text} />
+            ))}
+          </form>
         </Card>
       )
     }

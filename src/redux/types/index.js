@@ -1,4 +1,7 @@
-// transcriptions types
+// transcriptions load:
 export const LOAD_TRANSCRIPTIONS = 'LOAD_TRANSCRIPTIONS'
 export const LOAD_TRANSCRIPTIONS_SUCCESS = 'LOAD_TRANSCRIPTIONS_SUCCESS'
 export const LOAD_TRANSCRIPTIONS_FAILED = 'LOAD_TRANSCRIPTIONS_FAILED'
+
+// card types:
+export const ADD_NEW_ROW = 'ADD_NEW_ROW'

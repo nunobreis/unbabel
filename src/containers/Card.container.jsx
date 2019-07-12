@@ -2,25 +2,45 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import uuid from 'uuid'
 
 import Card from '../components/atoms/Card/Card'
 import TranscriptionForm from '../components/molecules/TranscriptionForm/TranscriptionForm'
 import FetchingDataFailed from '../components/molecules/FetchingDataFailed/FetchingDataFailed'
+import AddNewRow from '../components/molecules/AddNewRow/AddNewRow'
 
 import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
 
 class CardContainer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleAddNewRow = this.handleAddNewRow.bind(this)
+  }
+
+  handleAddNewRow() {
+    const { actions } = this.props
+    return actions.addNewRow(({
+      id: uuid(),
+      voice: 'Placeholder title',
+      text: 'Placeholder text'
+    }))
+  }
+
   render() {
     const { transcriptions } = this.props
     if (transcriptions.messages) {
       return (
-        <Card>
-          <form>
-            {transcriptions.messages.map(({ id, voice, text }) => (
-              <TranscriptionForm key={id} voice={voice} text={text} />
-            ))}
-          </form>
-        </Card>
+        <div>
+          <Card>
+            <form>
+              {transcriptions.messages.map(({ id, voice, text }) => (
+                <TranscriptionForm key={id} voice={voice} text={text} />
+              ))}
+            </form>
+          </Card>
+          <AddNewRow addRow={this.handleAddNewRow} />
+        </div>
       )
     }
     if (transcriptions.error) {
@@ -32,7 +52,12 @@ class CardContainer extends React.Component {
         </Card>
       )
     }
-    return <Card />
+    return (
+      <div>
+        <Card />
+        <AddNewRow addRow={this.handleAddNewRow}/>
+      </div>
+    )
   }
 }
 

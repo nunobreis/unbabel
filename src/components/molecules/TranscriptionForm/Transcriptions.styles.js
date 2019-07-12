@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import DeleteIcon from '../../atoms/DeleteIcon/DeleteIcon'
 
 export const StyledDeleteIcon = styled(DeleteIcon)`
-  display: none;
+  visibility: hidden;
 `
 
 export const Wrapper = styled.div`
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   &:hover > ${StyledDeleteIcon} {
-    display: inline-block;
+    visibility: visible;
     cursor: pointer;
   }
 `

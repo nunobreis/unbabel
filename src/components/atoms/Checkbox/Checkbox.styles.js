@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const fontPrimary = ({ theme }) => theme.fonts.primary
 
-const primaryColor = ({ theme }) => theme.colors.primary1
+const primaryColor = ({ theme }) => theme.colors.primary
 
 // custom checkbox:
 export const Checkmark = styled.span`

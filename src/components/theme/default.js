@@ -4,11 +4,7 @@ const fonts = {
 }
 
 const colors = {
-  primary1: '#859EFF',
-  primary2: '#389FBA',
-  primary3: '#AEC0C1',
-  secondary1: '#F1EBDD',
-  secondary2: '#DACCD8',
+  primary: '#859EFF',
   warning: '#ff9696',
   dark: '#566074',
   light: '#fff'

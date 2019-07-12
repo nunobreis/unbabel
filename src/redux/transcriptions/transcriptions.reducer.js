@@ -1,18 +1,20 @@
 import {
   LOAD_TRANSCRIPTIONS_SUCCESS,
   LOAD_TRANSCRIPTIONS_FAILED,
-  ADD_NEW_ROW
+  ADD_NEW_ROW,
+  DELETE_ROW
 } from '../types/index'
 
 const initialState = {}
 
 export default function transcriptionsReducer(state = initialState, action) {
+  const { messages } = state
   switch (action.type) {
     case LOAD_TRANSCRIPTIONS_SUCCESS:
       return {
         ...state,
-        messages: state.messages
-          ? [...state.messages, ...action.transcriptions]
+        messages: messages
+          ? [...messages, ...action.transcriptions]
           : [...action.transcriptions]
       }
     case LOAD_TRANSCRIPTIONS_FAILED:
@@ -23,9 +25,14 @@ export default function transcriptionsReducer(state = initialState, action) {
     case ADD_NEW_ROW:
       return {
         ...state,
-        messages: state.messages
-          ? [...state.messages, action.defaultTranscription]
+        messages: messages
+          ? [...messages, action.defaultTranscription]
           : [action.defaultTranscription]
+      }
+    case DELETE_ROW:
+      return {
+        ...state,
+        messages: messages.filter(({ id }) => id !== action.id)
       }
     default:
       return state

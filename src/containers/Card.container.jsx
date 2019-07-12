@@ -16,6 +16,12 @@ class CardContainer extends React.Component {
     super(props)
 
     this.handleAddNewRow = this.handleAddNewRow.bind(this)
+    this.handleDeleteRow = this.handleDeleteRow.bind(this)
+  }
+
+  handleDeleteRow(id) {
+    const { actions } = this.props
+    return actions.deleteRow(id)
   }
 
   handleAddNewRow() {
@@ -35,7 +41,13 @@ class CardContainer extends React.Component {
           <Card>
             <form>
               {transcriptions.messages.map(({ id, voice, text }) => (
-                <TranscriptionForm key={id} voice={voice} text={text} />
+                <TranscriptionForm
+                  key={id}
+                  id={id}
+                  voice={voice}
+                  text={text}
+                  deleteRow={this.handleDeleteRow}
+                />
               ))}
             </form>
           </Card>

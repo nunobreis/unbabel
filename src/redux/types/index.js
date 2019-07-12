@@ -5,3 +5,4 @@ export const LOAD_TRANSCRIPTIONS_FAILED = 'LOAD_TRANSCRIPTIONS_FAILED'
 
 // card types:
 export const ADD_NEW_ROW = 'ADD_NEW_ROW'
+export const DELETE_ROW = 'DELETE_ROW'

@@ -5,9 +5,11 @@ export const StyledDeleteIcon = styled(DeleteIcon)`
   display: none;
 `
 
-export const StyledForm = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
+  padding: 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   &:hover > ${StyledDeleteIcon} {
     display: inline-block;
@@ -15,7 +17,7 @@ export const StyledForm = styled.div`
   }
 `
 
-export const FormContent = styled.div`
+export const TextContent = styled.div`
   flex-grow: 1;
   margin-left: 1rem;
 `

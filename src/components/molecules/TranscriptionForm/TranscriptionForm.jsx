@@ -7,20 +7,20 @@ import EditableTextContent from '../../atoms/EditableTextContent/EditableTextCon
 import EditableTitle from '../../atoms/EditableTitle/EditableTitle'
 
 import {
-  StyledForm,
-  FormContent,
+  Wrapper,
+  TextContent,
   StyledDeleteIcon
 } from './Transcriptions.styles'
 
-const TranscriptionForm = ({ voice, text }) => <StyledForm>
+const TranscriptionForm = ({ voice, text }) => <Wrapper>
   <Checkbox />
   <AvatarIcon />
-  <FormContent>
+  <TextContent>
     <EditableTitle placeholder={voice}/>
     <EditableTextContent placeholder={text} />
-  </FormContent>
+  </TextContent>
   <StyledDeleteIcon />
-</StyledForm>
+</Wrapper>
 
 TranscriptionForm.propTypes = {
   voice: PropTypes.string,

@@ -2,28 +2,24 @@ import styled from 'styled-components'
 
 const fontPrimary = ({ theme }) => theme.fonts.primary
 
-const primaryColor = ({ theme }) => theme.colors.primary2
-
-const secondaryColor = ({ theme }) => theme.colors.secondary1
-
-const secondaryColorAlt = ({ theme }) => theme.colors.secondary2
+const primaryColor = ({ theme }) => theme.colors.primary1
 
 // custom checkbox:
 export const Checkmark = styled.span`
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: ${primaryColor};
+  height: 1.6rem;
+  width: 1.6rem;
+  border: 2px solid ${primaryColor};
   border-radius: 4px;
 
   &:after {
     content: "";
     position: absolute;
     display: none;
-    left: 9px;
-    top: 5px;
+    left: 4px;
+    top: 0;
     width: 5px;
     height: 10px;
     border: solid white;
@@ -44,7 +40,7 @@ export const StyledInput = styled.input`
   border-radius: 4px;
 
   &:checked ~ ${Checkmark} {
-    background-color: ${secondaryColorAlt};
+    background-color: ${primaryColor};
   }
 
   &:checked ~ ${Checkmark}:after {
@@ -66,6 +62,6 @@ export const Container = styled.label`
   user-select: none;
 
   &:hover > ${StyledInput} ~ ${Checkmark} {
-    background-color: ${secondaryColor};
+    background-color: ${primaryColor};
   }
 `

@@ -4,7 +4,7 @@ const fonts = {
 }
 
 const colors = {
-  primary1: '#026557',
+  primary1: '#859EFF',
   primary2: '#389FBA',
   primary3: '#AEC0C1',
   secondary1: '#F1EBDD',

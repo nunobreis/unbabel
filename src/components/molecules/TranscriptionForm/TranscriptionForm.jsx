@@ -8,21 +8,6 @@ import EditableTitle from '../../atoms/EditableTitle/EditableTitle'
 
 import { Wrapper, TextContent, StyledDeleteIcon } from './Transcriptions.styles'
 
-// const TranscriptionForm = ({
-//   id,
-//   voice,
-//   text,
-//   deleteRow
-// }) => <Wrapper>
-//   <Checkbox />
-//   <AvatarIcon />
-//   <TextContent>
-//     <EditableTitle value={voice}/>
-//     <EditableTextContent value={text} />
-//   </TextContent>
-//   <StyledDeleteIcon onClick={() => deleteRow(id)} />
-// </Wrapper>
-
 class TranscriptionForm extends React.Component {
   constructor(props) {
     super(props)

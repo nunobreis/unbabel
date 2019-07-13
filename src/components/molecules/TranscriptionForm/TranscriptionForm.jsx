@@ -51,10 +51,10 @@ class TranscriptionForm extends React.Component {
 }
 
 TranscriptionForm.propTypes = {
-  id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   voice: PropTypes.string,
   text: PropTypes.string,
-  deleteRow: PropTypes.func.isRequired,
+  deleteRow: PropTypes.func.isRequired
 }
 
 export default TranscriptionForm

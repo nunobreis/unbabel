@@ -28,8 +28,8 @@ class CardContainer extends React.Component {
     const { actions } = this.props
     return actions.addNewRow(({
       id: uuid(),
-      voice: 'Placeholder title',
-      text: 'Placeholder text'
+      voice: 'Place your title here',
+      text: 'Place your text here'
     }))
   }
 

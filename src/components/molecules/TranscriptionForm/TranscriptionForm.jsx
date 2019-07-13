@@ -13,12 +13,14 @@ class TranscriptionForm extends React.Component {
     super(props)
 
     this.state = {
+      isChecked: false,
       voiceValue: this.props.voice,
       textValue: this.props.text
     }
 
     this.handleVoiceChange = this.handleVoiceChange.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
+    this.handleOnChangeCheckbox = this.handleOnChangeCheckbox.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -30,6 +32,12 @@ class TranscriptionForm extends React.Component {
     this.setState({ textValue: event.target.value })
   }
 
+  handleOnChangeCheckbox() {
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
+  }
+
   handleSubmit(event) {
     console.log(this.state)
     event.preventDefault()
@@ -38,11 +46,20 @@ class TranscriptionForm extends React.Component {
   render() {
     return (
       <Wrapper onSubmit={this.handleSubmit}>
-        <Checkbox />
+        <Checkbox
+          name={this.props.id}
+          handleChangeCheckbox={this.handleOnChangeCheckbox}
+        />
         <AvatarIcon />
         <TextContent>
-          <EditableTitle value={this.state.voiceValue} onChange={this.handleVoiceChange} />
-          <EditableTextContent value={this.state.textValue} onChange={this.handleTextChange} />
+          <EditableTitle
+            value={this.state.voiceValue}
+            onChange={this.handleVoiceChange}
+          />
+          <EditableTextContent
+            value={this.state.textValue}
+            onChange={this.handleTextChange}
+          />
         </TextContent>
         <StyledDeleteIcon onClick={() => this.props.deleteRow(this.props.id)} />
       </Wrapper>
@@ -54,7 +71,8 @@ TranscriptionForm.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   voice: PropTypes.string,
   text: PropTypes.string,
-  deleteRow: PropTypes.func.isRequired
+  deleteRow: PropTypes.func.isRequired,
+  checked: PropTypes.bool
 }
 
 export default TranscriptionForm

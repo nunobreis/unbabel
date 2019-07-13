@@ -39,7 +39,6 @@ class CardContainer extends React.Component {
       return (
         <div>
           <Card>
-            <form>
               {transcriptions.messages.map(({ id, voice, text }) => (
                 <TranscriptionForm
                   key={id}
@@ -49,7 +48,6 @@ class CardContainer extends React.Component {
                   deleteRow={this.handleDeleteRow}
                 />
               ))}
-            </form>
           </Card>
           <AddNewRow addRow={this.handleAddNewRow} />
         </div>

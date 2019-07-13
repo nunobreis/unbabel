@@ -3,10 +3,13 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from './EditableTextContent.styles'
 
-const EditableTextContent = ({ placeholder }) => <StyledInput placeholder={placeholder} />
+const EditableTextContent = ({ value, onChange }) => (
+  <StyledInput type="text" value={value} onChange={e => onChange(e)} />
+)
 
 EditableTextContent.propTypes = {
-  placeholder: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default EditableTextContent

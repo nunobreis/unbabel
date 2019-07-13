@@ -5,7 +5,7 @@ export const StyledDeleteIcon = styled(DeleteIcon)`
   visibility: hidden;
 `
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   display: flex;
   flex-flow: row nowrap;
   padding: 3rem;

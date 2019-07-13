@@ -3,10 +3,13 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from './EditableTitle.styles'
 
-const EditableTitle = ({ placeholder }) => <StyledInput placeholder={placeholder} />
+const EditableTitle = ({ value, onChange }) => (
+  <StyledInput type="text" value={value} onChange={e => onChange(e)} />
+)
 
 EditableTitle.propTypes = {
-  placeholder: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default EditableTitle

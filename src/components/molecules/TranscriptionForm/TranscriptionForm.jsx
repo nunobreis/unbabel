@@ -13,15 +13,12 @@ class TranscriptionForm extends React.Component {
     super(props)
 
     this.state = {
-      isChecked: false,
-      voiceValue: this.props.voice,
-      textValue: this.props.text
+      checkedItems: new Map()
     }
 
     this.handleVoiceChange = this.handleVoiceChange.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
     this.handleOnChangeCheckbox = this.handleOnChangeCheckbox.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleVoiceChange(event) {
@@ -32,35 +29,38 @@ class TranscriptionForm extends React.Component {
     this.setState({ textValue: event.target.value })
   }
 
-  handleOnChangeCheckbox() {
+  handleOnChangeCheckbox(event) {
     this.setState({
-      isChecked: !this.state.isChecked
+      isChecked: event.target.checked
     })
-  }
 
-  handleSubmit(event) {
-    console.log(this.state)
-    event.preventDefault()
+    const transcription = this.state
+    this.props.checkboxChanged(transcription)
   }
 
   render() {
     return (
       <Wrapper onSubmit={this.handleSubmit}>
+        {this.props.checkBox}
         <Checkbox
           name={this.props.id}
-          handleChangeCheckbox={this.handleOnChangeCheckbox}
+          checked={this.state.isChecked}
+          onChange={this.handleOnChangeCheckbox}
         />
         <AvatarIcon />
         <TextContent>
+          {this.props.editableTitle}
           <EditableTitle
             value={this.state.voiceValue}
             onChange={this.handleVoiceChange}
           />
+          {this.props.editableText}
           <EditableTextContent
             value={this.state.textValue}
             onChange={this.handleTextChange}
           />
         </TextContent>
+        {this.props.deleteIcon}
         <StyledDeleteIcon onClick={() => this.props.deleteRow(this.props.id)} />
       </Wrapper>
     )

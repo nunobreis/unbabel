@@ -1,17 +1,16 @@
 import styled from 'styled-components'
-import DeleteIcon from '../../atoms/DeleteIcon/DeleteIcon'
 
-export const StyledDeleteIcon = styled(DeleteIcon)`
-  visibility: hidden;
-`
-
-export const Wrapper = styled.form`
+export const Wrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   padding: 3rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  &:hover > ${StyledDeleteIcon} {
+  > svg {
+    visibility: hidden;
+  } 
+
+  &:hover > svg {
     visibility: visible;
     cursor: pointer;
   }

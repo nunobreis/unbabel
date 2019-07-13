@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import { Provider as ReduxProvider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 
-import TranscriptionsPage from '../components/Pages/TranscriptionsPage'
+import TranscriptionsPageContainer from '../containers/TranscriptionsPage.container'
+
 import { GlobalStyles } from './app.styles'
 
 import configureStore from '../redux/store/index'
@@ -13,7 +14,7 @@ const store = configureStore()
 
 const App = () => (
   <div>
-    <TranscriptionsPage />
+    <TranscriptionsPageContainer />
     <GlobalStyles />
   </div>
 )

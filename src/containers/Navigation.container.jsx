@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import AppBar from '../components/organisms/AppBar/AppBar'
+import UploadIcon from '../components/atoms/UploadIcon/UploadIcon'
+import FetchIcon from '../components/atoms/FetchIcon/FetchIcon'
 import Navigation from '../components/molecules/Navigation/Navigation'
 
 import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
@@ -12,6 +15,11 @@ class NavigationContainer extends React.Component {
     super(props)
 
     this.handleFetchData = this.handleFetchData.bind(this)
+    this.handlePostData = this.handlePostData.bind(this)
+  }
+
+  handlePostData() {
+    this.props.post()
   }
 
   handleFetchData() {
@@ -21,16 +29,24 @@ class NavigationContainer extends React.Component {
 
   render() {
     return (
-      <Navigation
-        fetchData={this.handleFetchData}
-      />
+      <AppBar>
+        <Navigation>
+          <UploadIcon
+            onClick={this.handlePostData}
+          />
+          <FetchIcon
+            onClick={this.handleFetchData}
+          />
+          </Navigation>
+      </AppBar>
     )
   }
 }
 
 NavigationContainer.propTypes = {
   transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  post: PropTypes.func
 }
 
 const mapStateToProps = ({ transcriptions }) => ({

@@ -1,12 +1,15 @@
 import React from 'react'
-
-import NavigationContainer from '../../../containers/Navigation.container'
+import PropTypes from 'prop-types'
 
 import { Wrapper, Brand } from './AppBar.styles'
 
-const AppBar = () => <Wrapper>
+const AppBar = ({ children, ...props }) => <Wrapper {...props}>
   <Brand level={4}>Transcriptions</Brand>
-  <NavigationContainer />
+  { children }
 </Wrapper>
+
+AppBar.propTypes = {
+  children: PropTypes.node.isRequired
+}
 
 export default AppBar

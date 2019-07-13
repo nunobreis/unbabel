@@ -1,20 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import FetchIcon from '../../atoms/FetchIcon/FetchIcon'
-import UploadIcon from '../../atoms/UploadIcon/UploadIcon'
-
 import { Wrapper } from './Navigation.styles'
 
-const Navigation = ({ fetchData }) => <Wrapper>
-  <UploadIcon />
-  <FetchIcon
-    onClick={() => fetchData()}
-  />
+const Navigation = ({ children }) => <Wrapper>
+  { children }
 </Wrapper>
 
 Navigation.propTypes = {
-  fetchData: PropTypes.func.isRequired
+  children: PropTypes.node.isRequired
 }
 
 export default Navigation

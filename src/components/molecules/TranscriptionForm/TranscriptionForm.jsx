@@ -6,14 +6,20 @@ import Checkbox from '../../atoms/Checkbox/Checkbox'
 import EditableTextContent from '../../atoms/EditableTextContent/EditableTextContent'
 import EditableTitle from '../../atoms/EditableTitle/EditableTitle'
 
-import { Wrapper, TextContent, StyledDeleteIcon } from './Transcriptions.styles'
+import {
+  Wrapper,
+  StyledDeleteIcon
+} from './Transcriptions.styles'
 
 class TranscriptionForm extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      checkedItems: new Map()
+      isChecked: false,
+      id: this.props.id,
+      voiceValue: this.props.voice,
+      textValue: this.props.text
     }
 
     this.handleVoiceChange = this.handleVoiceChange.bind(this)
@@ -30,39 +36,36 @@ class TranscriptionForm extends React.Component {
   }
 
   handleOnChangeCheckbox(event) {
-    this.setState({
-      isChecked: event.target.checked
-    })
-
-    const transcription = this.state
-    this.props.checkboxChanged(transcription)
+    const transcription = {
+      isChecked: event.target.checked,
+      id: this.state.id,
+      voice: this.state.voiceValue,
+      text: this.state.textValue
+    }
+    this.props.transcriptionsList(transcription)
   }
 
   render() {
     return (
-      <Wrapper onSubmit={this.handleSubmit}>
-        {this.props.checkBox}
-        <Checkbox
-          name={this.props.id}
-          checked={this.state.isChecked}
-          onChange={this.handleOnChangeCheckbox}
-        />
-        <AvatarIcon />
-        <TextContent>
-          {this.props.editableTitle}
-          <EditableTitle
-            value={this.state.voiceValue}
-            onChange={this.handleVoiceChange}
+        <Wrapper>
+          <Checkbox
+            name={this.state.id}
+            id={this.state.id}
+            onChange={this.handleOnChangeCheckbox}
           />
-          {this.props.editableText}
-          <EditableTextContent
-            value={this.state.textValue}
-            onChange={this.handleTextChange}
-          />
-        </TextContent>
-        {this.props.deleteIcon}
-        <StyledDeleteIcon onClick={() => this.props.deleteRow(this.props.id)} />
-      </Wrapper>
+          <AvatarIcon />
+          <div>
+            <EditableTitle
+              value={this.state.voiceValue}
+              onChange={this.handleVoiceChange}
+            />
+            <EditableTextContent
+              value={this.state.textValue}
+              onChange={this.handleTextChange}
+            />
+          </div>
+          <StyledDeleteIcon onClick={() => this.props.deleteRow(this.props.id)} />
+        </Wrapper>
     )
   }
 }
@@ -72,7 +75,7 @@ TranscriptionForm.propTypes = {
   voice: PropTypes.string,
   text: PropTypes.string,
   deleteRow: PropTypes.func.isRequired,
-  checked: PropTypes.bool
+  transcriptionsList: PropTypes.func.isRequired
 }
 
 export default TranscriptionForm

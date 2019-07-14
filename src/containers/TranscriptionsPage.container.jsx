@@ -11,14 +11,19 @@ import FetchingDataFailed from '../components/molecules/FetchingDataFailed/Fetch
 import TranscriptionForm from '../components/molecules/TranscriptionForm/TranscriptionForm'
 
 import * as transcriptionsActions from '../redux/transcriptions/transcriptions.actions'
+import * as checkedTranscriptionsActions from '../redux/checkedTranscriptions/checkedTranscriptions.actions'
+
 import NavigationContainer from './Navigation.container'
 
 class TranscriptionsPageContainer extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {}
+
     this.handleAddNewRow = this.handleAddNewRow.bind(this)
     this.handleDeleteRow = this.handleDeleteRow.bind(this)
+    this.handleTranscriptionsList = this.handleTranscriptionsList.bind(this)
     this.handlePostTranscriptions = this.handlePostTranscriptions.bind(this)
   }
 
@@ -36,10 +41,14 @@ class TranscriptionsPageContainer extends React.Component {
     })
   }
 
+  handleTranscriptionsList(transcription) {
+    const { actions } = this.props
+    actions.checkedTranscription(transcription)
+  }
+
   handlePostTranscriptions() {
-    if (this.state.messages && this.state.messages.length > 0) {
-      const filterMessages = this.state.messages.filter(message => console.log(message.isChecked))
-      console.log(filterMessages)
+    if (this.props.checkedTranscriptions) {
+      this.props.actions.uploadTranscriptions()
     }
   }
 
@@ -47,7 +56,9 @@ class TranscriptionsPageContainer extends React.Component {
     const { transcriptions } = this.props
     if (transcriptions.messages) {
       return (
-        <TranscriptionsTemplate header={<NavigationContainer post={this.handlePostTranscriptions} />}>
+        <TranscriptionsTemplate
+          header={<NavigationContainer post={this.handlePostTranscriptions} />}
+        >
           <form>
             <Card>
               {transcriptions.messages.map(({ id, voice, text }) => (
@@ -57,16 +68,7 @@ class TranscriptionsPageContainer extends React.Component {
                   voice={voice}
                   text={text}
                   deleteRow={this.handleDeleteRow}
-                  checkboxChanged={transcription => this.state.messages.push(transcription)}
-                  checkbox={<Checkbox
-                    name={id}
-                  />}
-                  text={<EditableTitle
-                    value={this.state.voiceValue}
-                    onChange={this.handleVoiceChange}
-                  />}
-                  title={<EditableTextContent />}
-                  deleteIcon=
+                  transcriptionsList={this.handleTranscriptionsList}
                 />
               ))}
 
@@ -88,7 +90,7 @@ class TranscriptionsPageContainer extends React.Component {
       )
     }
     return (
-      <TranscriptionsTemplate header={<NavigationContainer />}>
+      <TranscriptionsTemplate header={<NavigationContainer post={this.handlePostTranscriptions} />}>
         <Card />
         <AddNewRow addRow={this.handleAddNewRow} />
       </TranscriptionsTemplate>
@@ -98,15 +100,23 @@ class TranscriptionsPageContainer extends React.Component {
 
 TranscriptionsPageContainer.propTypes = {
   transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  checkedTranscriptions: PropTypes.object,
   actions: PropTypes.object.isRequired
 }
 
-const mapStateToProps = ({ transcriptions }) => ({
-  transcriptions
+const mapStateToProps = ({
+  transcriptions,
+  checkedTranscriptions
+}) => ({
+  transcriptions,
+  checkedTranscriptions
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(transcriptionsActions, dispatch)
+  actions: bindActionCreators({
+    ...transcriptionsActions,
+    ...checkedTranscriptionsActions
+  }, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

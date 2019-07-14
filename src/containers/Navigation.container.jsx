@@ -44,17 +44,12 @@ class NavigationContainer extends React.Component {
 }
 
 NavigationContainer.propTypes = {
-  transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   actions: PropTypes.object.isRequired,
   post: PropTypes.func
 }
-
-const mapStateToProps = ({ transcriptions }) => ({
-  transcriptions
-})
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators(transcriptionsActions, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationContainer)
+export default connect(null, mapDispatchToProps)(NavigationContainer)

@@ -7,11 +7,14 @@ import {
   Checkmark
 } from './Checkbox.styles'
 
-const Checkbox = ({ text, name, checked, onChange }) => <Container>
+const Checkbox = ({
+  text,
+  name,
+  onChange
+}) => <Container>
   { text || null }
   <StyledInput
     type="checkbox"
-    checked={checked}
     name={name}
     onChange={onChange}
   />
@@ -20,7 +23,6 @@ const Checkbox = ({ text, name, checked, onChange }) => <Container>
 
 Checkbox.propTypes = {
   text: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
   name: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.number.isRequired

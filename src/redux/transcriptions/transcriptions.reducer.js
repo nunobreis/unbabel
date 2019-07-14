@@ -13,9 +13,7 @@ export default function transcriptionsReducer(state = initialState, action) {
     case LOAD_TRANSCRIPTIONS_SUCCESS:
       return {
         ...state,
-        messages: messages
-          ? [...messages, ...action.transcriptions]
-          : [...action.transcriptions]
+        messages: [...action.transcriptions]
       }
     case LOAD_TRANSCRIPTIONS_FAILED:
       return {

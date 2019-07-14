@@ -47,8 +47,9 @@ class TranscriptionsContainer extends React.Component {
   }
 
   handlePostTranscriptions() {
-    if (this.props.checkedTranscriptions) {
-      this.props.actions.uploadTranscriptions()
+    const transcriptions = this.props.checkedTranscriptions
+    if (transcriptions) {
+      this.props.actions.uploadTranscriptions(transcriptions)
     }
   }
 

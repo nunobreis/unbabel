@@ -8,9 +8,11 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import thunk from 'redux-thunk'
 
 import transcriptions from '../transcriptions/transcriptions.reducer'
+import checkedTranscriptions from '../checkedTranscriptions/checkedTranscriptions.reducer'
 
 const rootReducer = combineReducers({
-  transcriptions
+  transcriptions,
+  checkedTranscriptions
 })
 
 export default function configureStore(initialState) {

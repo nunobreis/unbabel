@@ -6,6 +6,9 @@ export const LOAD_TRANSCRIPTIONS_FAILED = 'LOAD_TRANSCRIPTIONS_FAILED'
 export const ADD_NEW_ROW = 'ADD_NEW_ROW'
 export const DELETE_ROW = 'DELETE_ROW'
 
-// trnscriptions post:
+// transcriptions post:
 export const POST_TRANSCRIPTIONS_SUCCESS = 'POST_TRANSCRIPTIONS_SUCCESS'
 export const POST_TRANSCRIPTIONS_FAILED = 'POST_TRANSCRIPTIONS_FAILED'
+
+// checked tanscriptions:
+export const CHECKED_TRANSCRIPTION = 'CHECK_TRANSCRIPTION'

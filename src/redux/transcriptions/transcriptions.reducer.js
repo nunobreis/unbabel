@@ -2,9 +2,7 @@ import {
   LOAD_TRANSCRIPTIONS_SUCCESS,
   LOAD_TRANSCRIPTIONS_FAILED,
   ADD_NEW_ROW,
-  DELETE_ROW,
-  POST_TRANSCRIPTIONS_SUCCESS,
-  POST_TRANSCRIPTIONS_FAILED
+  DELETE_ROW
 } from '../types/index'
 
 const initialState = {}
@@ -15,9 +13,7 @@ export default function transcriptionsReducer(state = initialState, action) {
     case LOAD_TRANSCRIPTIONS_SUCCESS:
       return {
         ...state,
-        messages: messages
-          ? [...messages, ...action.transcriptions]
-          : [...action.transcriptions]
+        messages: [...action.transcriptions]
       }
     case LOAD_TRANSCRIPTIONS_FAILED:
       return {
@@ -35,17 +31,6 @@ export default function transcriptionsReducer(state = initialState, action) {
       return {
         ...state,
         messages: messages.filter(({ id }) => id !== action.id)
-      }
-    case POST_TRANSCRIPTIONS_SUCCESS:
-      return {
-        ...state,
-        response: action.response,
-        success: 'Your Transcriptions have been posted Successfully'
-      }
-    case POST_TRANSCRIPTIONS_FAILED:
-      return {
-        ...state,
-        error: action.error
       }
     default:
       return state

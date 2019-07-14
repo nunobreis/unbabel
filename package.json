@@ -4,7 +4,6 @@
   "description": "solution for unbabel problem",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 -s ./Images",
     "build-storybook": "build-storybook -s ./Images",
     "build": "webpack",

@@ -15,7 +15,7 @@ import * as checkedTranscriptionsActions from '../redux/checkedTranscriptions/ch
 
 import NavigationContainer from './Navigation.container'
 
-class TranscriptionsPageContainer extends React.Component {
+class TranscriptionsContainer extends React.Component {
   constructor(props) {
     super(props)
 
@@ -98,7 +98,7 @@ class TranscriptionsPageContainer extends React.Component {
   }
 }
 
-TranscriptionsPageContainer.propTypes = {
+TranscriptionsContainer.propTypes = {
   transcriptions: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   checkedTranscriptions: PropTypes.object,
   actions: PropTypes.object.isRequired
@@ -120,5 +120,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  TranscriptionsPageContainer,
+  TranscriptionsContainer,
 )

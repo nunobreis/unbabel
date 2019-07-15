@@ -7,7 +7,7 @@ Following this approach my comoponets are divided in: **atoms**, **molecules** a
 
 I have created stories through **Storybook** that render each component in isolation proving that they can stand by themselves and hence be re-used anywhere.
 
-The components handle everything that is presentational. Following Dan Abramov's approach for component composition (presentation components vs logic components) I created containers that don't care about styles/presentation but know about the **Redux Store** and thus handle all logic within the app.
+The components handle everything that is presentational. Following [Dan Abramov's approach](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) for component composition (presentation components vs container components) I created containers that don't care about styles/presentation but know about the **Redux Store** and thus handle all logic within the app.
 
 ## 2. Get the project up and running
 To get this project up and running in your machine I will assume you have [NodeJS](https://nodejs.org/en/) already installed.

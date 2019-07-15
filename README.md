@@ -47,3 +47,12 @@ If you want to build the project just use the script:
 ```
 npm run build
 ```
+
+## 3. Future considerations
+
+As a retroespective on this development sprint I would like to make some considerations for future contributions to this project.
+
+With a bit more time there are issues that could have been tackled in a different fashion for scalability reasons. For instance:
+
+- To handle asynchronous calls to the mock API I've used Redux Thunk as a middleware. Maybe in the future as the app grows, other more powerful middlewares systems could be considered to handle complex asyncrhonous functionality like authentication. For this reason maybe a future re-factor would be to change Redux Thank to Redux Sagas.
+- Another consideration would be to integrate a testing system quite possibly using: Jest and enzyme. As of now Storybook makes a great job in proving that each component renders in isolation. Although the full functionality and logic lack testing to proof that the app works as expected and to capture potential bugs.
